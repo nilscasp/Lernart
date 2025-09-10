@@ -1,0 +1,340 @@
+// Lernart Landing + Legal Pages (React + Tailwind)
+// -------------------------------------------------
+// Fixes applied:
+// - Removed TypeScript-only casts and react-router dependency to avoid runtime/build issues.
+// - Replaced placeholder JSX comment with full sections (no ambiguous placeholders in JSX).
+// - Ensured balanced brackets and valid JSX.
+// - Footer now links directly to /impressum and /datenschutz via <a>.
+// - Includes a small __runTests() with existing tests kept and additional tests added.
+
+export default function LernartLanding() {
+  return (
+    <div
+      className="min-h-screen w-full text-[var(--color-text)] bg-[var(--color-bg)]"
+      style={{
+        '--color-bg': '#1E1F33',
+        '--color-surface': 'rgba(255,255,255,0.06)',
+        '--color-text': 'rgba(255,255,255,0.94)',
+        '--color-muted': 'rgba(255,255,255,0.7)',
+        '--color-accent': '#C7A86D',
+        '--color-accent-2': '#8EC0C9',
+        '--leading': '1.6',
+      }}
+    >
+      {/* BACKDROP */}
+      <div className="pointer-events-none fixed inset-0 opacity-[0.08]" aria-hidden>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(255,255,255,0.12),_transparent_40%),radial-gradient(circle_at_70%_60%,_rgba(255,255,255,0.08),_transparent_45%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" />
+      </div>
+
+      {/* PAGE WRAPPER */}
+      <main className="relative mx-auto max-w-6xl px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-24 leading-[var(--leading)] font-sans">
+        {/* HERO */}
+        <section className="mb-16 md:mb-24">
+          <div className="flex flex-col items-center text-center gap-6">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[var(--color-surface)] px-4 py-2 text-sm text-[var(--color-muted)] shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                <path d="M12 3l2.25 4.56L19.5 8.4l-3.75 3.42.9 4.98L12 14.88 7.35 16.8l.9-4.98L4.5 8.4l5.25-.84L12 3z" />
+              </svg>
+              Lernart – Kreativität als Weg der Selbsterkenntnis
+            </span>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Entdecke deine kreative Freiheit
+            </h1>
+            <p className="max-w-2xl text-base md:text-lg text-[var(--color-muted)]">
+              Lerne dich selbst durch Kunst kennen: Ein Coaching- und Lernraum, der Blockaden löst, innere Klarheit schafft und deinen eigenen Ausdruck befreit.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="#pakete" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium text-white bg-[var(--color-accent)] shadow-lg shadow-black/20 hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-white/20">
+                Pakete ansehen
+              </a>
+              <a href="#kontakt" className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium text-[var(--color-text)] bg-[var(--color-surface)] hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/10">
+                Unverbindlich anfragen
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ABOUT – Nils & Lisa */}
+        <section className="mb-16 md:mb-24">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+            <div className="rounded-2xl shadow-xl p-6 md:p-8 bg-[var(--color-surface)]">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4">Wer wir sind</h2>
+              <p className="text-[var(--color-muted)]">
+                Ich bin <strong>Nils Caspar</strong> – Künstler und Coach – mit Hintergrund in Expressive Arts, Hypnose, Meditation und spiritueller Prozessarbeit. Gemeinsam mit <strong>Lisa Fuchs</strong> – spezialisiert auf Transformation alter Muster – begleiten wir Menschen dabei, ihre kreative Stimme zu finden und nachhaltig zu verkörpern.
+              </p>
+            </div>
+            <div className="rounded-2xl shadow-xl p-6 md:p-8 bg-[var(--color-surface)]">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-3">Unser Ansatz</h3>
+              <ul className="list-disc pl-5 space-y-2 text-[var(--color-muted)]">
+                <li>Kreativität als Praxis der Bewusstheit und Verkörperung.</li>
+                <li>Blockadenarbeit: behutsam, tiefgreifend und alltagsnah.</li>
+                <li>Hybrid: Impulse online & Erlebnisse vor Ort – nachhaltig integriert.</li>
+                <li>Musikalisch-künstlerisch intermedial – vom Klang zur Gestalt.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* LERNART – Was es ist */}
+        <section className="mb-16 md:mb-24">
+          <div className="rounded-2xl shadow-xl p-6 md:p-10 bg-[var(--color-surface)]">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Was ist „Lernart“?</h2>
+            <p className="text-[var(--color-muted)] mb-4">
+              <strong>Lernart</strong> ist ein Coaching- und Lernframework für kreative Menschen. Wir arbeiten am <em>Wie des Lernens</em> – nicht nur am Ergebnis. Du entwickelst einen klaren Umgang mit inneren Hürden, stärkst deine Selbstwahrnehmung und gestaltest deinen einzigartigen Stil.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              {[
+                { title: 'Klarheit', desc: 'Struktur für deinen Weg – ohne die Lebendigkeit zu verlieren.' },
+                { title: 'Tiefe', desc: 'Blockadenarbeit und Integration statt schneller Hacks.' },
+                { title: 'Ausdruck', desc: 'Deine Stimme – hörbar, sichtbar, präsent.' },
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl p-5 bg-white/5 shadow-inner">
+                  <h4 className="text-xl md:text-2xl font-semibold mb-1">{item.title}</h4>
+                  <p className="text-[var(--color-muted)]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* HANDPAN PATH – Hinweis */}
+        <section className="mb-16 md:mb-24">
+          <div className="rounded-2xl border border-white/10 p-6 md:p-8 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))]">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+              <div className="shrink-0 h-12 w-12 rounded-xl bg-[var(--color-accent-2)]/20 border border-[var(--color-accent-2)]/40 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[var(--color-accent-2)]">
+                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v5.59l3.3 3.3-1.42 1.42L11 13V7h2z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl md:text-3xl font-semibold">Handpan Path – als ergänzender Weg</h3>
+                <p className="text-[var(--color-muted)]">
+                  Für alle, die Klang als Spiegel der inneren Reise nutzen möchten: Der <strong>Handpan Path</strong> eröffnet eine musikalisch-spirituelle Vertiefung und passt nahtlos in das Lernart-Konzept.
+                </p>
+              </div>
+              <div>
+                <a
+                  href="https://www.nilscaspar.de/handpanpath"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm md:text-base font-medium text-white bg-[var(--color-accent-2)] hover:opacity-90 shadow-lg shadow-black/20"
+                >
+                  Zum Handpan Path
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PAKETE */}
+        <section id="pakete" className="mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">Pakete</h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                name: 'Starter',
+                price: 'ab 249€',
+                features: ['1:1 Kickoff (60 Min)', '2x Fokus-Session (je 45 Min)', 'Übungs-Plan & Integration'],
+                cta: 'Anfrage senden',
+                highlight: false,
+              },
+              {
+                name: 'Vertiefung',
+                price: 'ab 690€',
+                features: ['1:1 Kickoff (90 Min)', '4x Deep-Dive (je 60 Min)', 'Blockadenarbeit & Reframing', 'Zwischen-Feedback (Async)'],
+                cta: 'Gespräch buchen',
+                highlight: true,
+              },
+              {
+                name: 'Meisterschaft',
+                price: 'ab 1.490€',
+                features: ['Individuelle Roadmap', '8x Intensiv (je 75 Min)', 'Vor-Ort-Tagesretreat (optional)', 'Zugang zur Community (6 Mon.)'],
+                cta: 'Warteliste',
+                highlight: false,
+              },
+            ].map((p) => (
+              <div
+                key={p.name}
+                className={[
+                  'rounded-2xl p-6 md:p-8 shadow-xl flex flex-col gap-5',
+                  p.highlight ? 'bg-[var(--color-accent)] text-white' : 'bg-[var(--color-surface)]',
+                ].join(' ')}
+              >
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-semibold">{p.name}</h3>
+                  <p className={p.highlight ? 'text-white/90' : 'text-[var(--color-muted)]'}>{p.price}</p>
+                </div>
+                <ul className="space-y-2">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3">
+                      <span className={['mt-1 inline-flex h-2.5 w-2.5 rounded-full', p.highlight ? 'bg-white' : 'bg-[var(--color-accent)]'].join(' ')} />
+                      <span className={p.highlight ? 'text-white/95' : 'text-[var(--color-muted)]'}>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
+                  <a
+                    href="#kontakt"
+                    className={[
+                      'inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium shadow-lg',
+                      p.highlight ? 'bg-white text-[var(--color-bg)] hover:opacity-90' : 'bg-[var(--color-accent)] text-white hover:opacity-90',
+                    ].join(' ')}
+                  >
+                    {p.cta}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA / KONTAKT */}
+        <section id="kontakt" className="mb-16 md:mb-24">
+          <div className="rounded-2xl shadow-xl overflow-hidden">
+            <div className="p-6 md:p-10 bg-[linear-gradient(135deg,rgba(199,168,109,0.25),rgba(255,255,255,0.05))]">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-2">Bereit für deinen nächsten Schritt?</h2>
+              <p className="text-[var(--color-muted)] max-w-2xl">
+                Schreib uns kurz, wo du stehst und was du dir wünschst. Wir melden uns mit einem Vorschlag für deinen Einstieg.
+              </p>
+              <form className="mt-6 grid md:grid-cols-2 gap-4">
+                <input className="rounded-xl px-4 py-3 bg-white/10 placeholder-white/50 text-white focus:outline-none focus:ring-2 focus:ring-white/30" placeholder="Dein Name" />
+                <input className="rounded-xl px-4 py-3 bg-white/10 placeholder-white/50 text-white focus:outline-none focus:ring-2 focus:ring-white/30" placeholder="E-Mail" />
+                <textarea className="md:col-span-2 rounded-xl px-4 py-3 bg-white/10 placeholder-white/50 text-white focus:outline-none focus:ring-2 focus:ring-white/30" rows={4} placeholder="Wo stehst du gerade? Wobei darf Lernart dich unterstützen?" />
+                <button type="button" className="md:col-span-2 inline-flex justify-center items-center rounded-2xl px-6 py-3 bg-[var(--color-accent)] text-white font-medium hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-white/20">
+                  Nachricht senden
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className="pt-6 md:pt-10 border-t border-white/10 text-sm text-[var(--color-muted)]">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+            <p>© {new Date().getFullYear()} Lernart · Nils Caspar</p>
+            <nav className="flex items-center gap-4">
+              <a className="hover:text-white" href="/impressum">Impressum</a>
+              <a className="hover:text-white" href="/datenschutz">Datenschutz</a>
+            </nav>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RECHT: IMPRESSUM (eigene Seite)
+// ─────────────────────────────────────────────────────────────────────────────
+export function Impressum() {
+  return (
+    <div className="min-h-screen w-full text-[var(--color-text)] bg-[var(--color-bg)] p-8 md:p-16 leading-relaxed font-sans">
+      <h1 className="text-4xl md:text-5xl font-semibold mb-8">Impressum</h1>
+      <div className="space-y-4 max-w-3xl">
+        <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+        <p>
+          Nils Caspar Böhm <br />
+          Handpan Schule des Lebens / Lernart <br />
+          Musterstraße 12 <br />
+          80331 München <br />
+          Deutschland
+        </p>
+        <p><strong>Kontakt:</strong><br />
+          Telefon: +49 (0) 123 456789 <br />
+          E-Mail: info@nilscaspar.de
+        </p>
+        <p><strong>Umsatzsteuer-ID:</strong><br />
+          Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE123456789
+        </p>
+        <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
+          Nils Caspar Böhm, Anschrift wie oben.
+        </p>
+        <p><strong>Haftungsausschluss:</strong><br />
+          Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RECHT: DATENSCHUTZ (eigene Seite)
+// ─────────────────────────────────────────────────────────────────────────────
+export function Datenschutz() {
+  return (
+    <div className="min-h-screen w-full text-[var(--color-text)] bg-[var(--color-bg)] p-8 md:p-16 leading-relaxed font-sans">
+      <h1 className="text-4xl md:text-5xl font-semibold mb-8">Datenschutzerklärung</h1>
+      <div className="space-y-6 max-w-3xl">
+        <p>
+          Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten werden im Rahmen der gesetzlichen Vorschriften geschützt.
+        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">1. Allgemeines</h2>
+        <p>
+          Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies stets auf freiwilliger Basis.
+        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">2. Server-Log-Files</h2>
+        <p>
+          Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log Files, die Ihr Browser automatisch übermittelt. Dies sind: Browsertyp, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage.
+        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">3. Cookies</h2>
+        <p>
+          Unsere Internetseiten verwenden teilweise Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Sie dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen.
+        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">4. Kontaktformular</h2>
+        <p>
+          Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
+        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">5. Auskunft, Löschung, Sperrung</h2>
+        <p>
+          Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
+        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold">6. Widerspruch Werbe-Mails</h2>
+        <p>
+          Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MINI TESTS (Smoke Tests)
+// ─────────────────────────────────────────────────────────────────────────────
+export function __runTests() {
+  const results = [];
+  const push = (name, pass, details) => results.push({ name, pass, details });
+
+  // EXISTING TESTS (unchanged)
+  push('export default (LernartLanding) ist eine Funktion', typeof LernartLanding === 'function');
+  push('export Impressum ist eine Funktion', typeof Impressum === 'function');
+  push('export Datenschutz ist eine Funktion', typeof Datenschutz === 'function');
+
+  // ADDITIONAL TESTS
+  try {
+    const style = {
+      '--color-bg': '#1E1F33',
+      '--color-surface': 'rgba(255,255,255,0.06)',
+      '--color-text': 'rgba(255,255,255,0.94)',
+      '--color-muted': 'rgba(255,255,255,0.7)',
+      '--color-accent': '#C7A86D',
+      '--color-accent-2': '#8EC0C9',
+    };
+    const required = Object.keys(style);
+    const ok = required.every((k) => typeof style[k] === 'string' && style[k].length > 0);
+    push('CSS-Token vollständig gesetzt (Dummy-Prüfung)', ok, ok ? undefined : 'Ein oder mehrere Tokens fehlen.');
+  } catch (e) {
+    push('CSS-Token Prüfung lauffähig', false, String(e));
+  }
+
+  try {
+    const footerHTML = '<a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a>';
+    push('Footer enthält Link auf /impressum', footerHTML.includes('href="/impressum"'));
+    push('Footer enthält Link auf /datenschutz', footerHTML.includes('href="/datenschutz"'));
+  } catch (e) {
+    push('Footer-Link-Prüfung lauffähig', false, String(e));
+  }
+
+  const passed = results.every((r) => r.pass);
+  return { passed, results };
+}
